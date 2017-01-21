@@ -1,37 +1,51 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 [RequireComponent(typeof(AudioSource))]
 public class CaptureMic : MonoBehaviour {
 
 	private AudioSource aud;
 	private GameObject[] cubes;
+	private float[] spectrumData;
+	private float originalCubeY;
 
-	// Use this for initialization
+	public float normalizer;
+
+	public float speed;
+
 	void Start () {
 		aud = GetComponent<AudioSource>();
 		aud.clip = Microphone.Start(null, true, 1, 11025);
 		aud.loop = true;
 		aud.mute = false;
 		aud.Play();
-		cubes = GameObject.FindGameObjectsWithTag ("Cube");
+		cubes = GameObject.FindGameObjectsWithTag ("Cube").OrderBy(go => go.name).ToArray();
+		originalCubeY = cubes [0].transform.position.y;
+		spectrumData = new float[64];
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
-		var spectrum = new float[64];
-		aud.GetSpectrumData(spectrum, 0, FFTWindow.BlackmanHarris);
+		aud.GetOutputData (spectrumData, 0);
+		var spectrumSlicesPerCube = (spectrumData.Length / cubes.Length);
 
 		for (var i = 0; i < cubes.Length; i++) {
-			var spectrumIdx = i * 3;
-			var magnitude = (spectrum [spectrumIdx] + spectrum [spectrumIdx + 1] + spectrum [spectrumIdx + 2]) * 100;
-			var oldPosition = cubes [i].transform.position;
-			if (magnitude > .1) {
-				cubes [i].transform.position = new Vector3 (oldPosition.x, magnitude, oldPosition.z);
-			} else {
-				cubes [i].transform.position = new Vector3 (oldPosition.x, -1, oldPosition.z);
+			var spectrumIdx = i * spectrumSlicesPerCube;
+			var magnitude = 0.0f;
+			for (var j = 0; j < spectrumSlicesPerCube; j++) {
+				magnitude += spectrumData [spectrumIdx + j] * normalizer;
 			}
+
+			magnitude = (float)System.Math.Round (magnitude, 2);
+
+			var newY = originalCubeY;
+			if (magnitude > 0.05f) {
+				newY += magnitude;
+			}
+
+			var oldPosition = cubes [i].transform.position;
+			cubes [i].transform.position = Vector3.MoveTowards (oldPosition, new Vector3 (oldPosition.x, newY, oldPosition.z), speed * Time.deltaTime);
 		}
 	}
 }
