@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 65981367383268830}
   - component: {fileID: 23046390427987914}
   - component: {fileID: 54302989741134752}
-  - component: {fileID: 114025973514487516}
+  - component: {fileID: 114398512823544488}
   m_Layer: 0
   m_Name: Monster prefab
   m_TagString: Untagged
@@ -109,7 +109,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114025973514487516
+--- !u!114 &114398512823544488
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -117,8 +117,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1630653136405630}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18a76b03698404ba4afa9e3baa5c344f, type: 3}
+  m_Script: {fileID: 11500000, guid: f90d0ccdeb9584d33abe4df2da617b23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 15
-  prefab: {fileID: 0}
+  speed: 10
