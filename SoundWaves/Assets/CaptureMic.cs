@@ -40,7 +40,7 @@ public class CaptureMic : MonoBehaviour {
 			magnitude = (float)System.Math.Round (magnitude, 2);
 
 			var newY = originalCubeY;
-			if (magnitude > 0.05f) {
+			if (magnitude > 1f) {
 				newY += magnitude;
 			}
 
