@@ -22,7 +22,8 @@ public class SpawnEnemy : MonoBehaviour {
 		tempTimer -= Time.deltaTime;
 
 		if (tempTimer <= 0) {
-			Instantiate (prefab,new Vector3(positionX, positionY, positionZ), Quaternion.identity); 
+			var offset = Random.Range (-15.0f, 15.0f);
+			Instantiate (prefab,new Vector3(positionX + offset, positionY, positionZ), Quaternion.identity); 
 			tempTimer = timer;
 		}
 		
