@@ -123,6 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   texture1: {fileID: 2800000, guid: 5ca2e9673b19f4ddd9a3a14365e82c26, type: 3}
   texture2: {fileID: 2800000, guid: 94142c881c3da4e8094fedbffcf4e551, type: 3}
+  changeDelay: 5
 --- !u!114 &114398512823544488
 MonoBehaviour:
   m_ObjectHideFlags: 1
