@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PlayMovie : MonoBehaviour {
 
-	void Start () {
+	void Update(){
 
-		((MovieTexture)GetComponent<Renderer>().material.mainTexture).Play();
+    ((MovieTexture)GetComponent<Renderer>().material.mainTexture).Play();
 
-		}
+
+	}
 }
