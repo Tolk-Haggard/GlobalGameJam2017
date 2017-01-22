@@ -22,7 +22,7 @@ public class SpawnEnemy : MonoBehaviour {
 		tempTimer -= Time.deltaTime;
 
 		if (tempTimer <= 0) {
-			Instantiate (prefab,new Vector3(positionX, positionY, positionZ), transform.rotation); 
+			Instantiate (prefab,new Vector3(positionX, positionY, positionZ), Quaternion.identity); 
 			tempTimer = timer;
 		}
 		
