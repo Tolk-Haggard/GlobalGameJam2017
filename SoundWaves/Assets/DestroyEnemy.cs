@@ -13,6 +13,7 @@ public class DestroyEnemy : MonoBehaviour {
 			Destroy(col.gameObject);
 
 			if (kills >= 5) {
+				kills = 0;
 				SceneManager.LoadScene ("GameWin", LoadSceneMode.Single);
 			}
 		}
