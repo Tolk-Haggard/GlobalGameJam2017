@@ -1732,8 +1732,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b289a5e383c6d0b42bb8c478b8f064e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalizer: 300
-  speed: 20
+  normalizer: 500
+  speed: 30
 --- !u!82 &1132346738
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1826,7 +1826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18a76b03698404ba4afa9e3baa5c344f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 3
+  timer: 2
   prefab: {fileID: 1630653136405630, guid: 2ea814b7bbdc24b23a9ee3481faf5071, type: 2}
   positionX: 21.5
   positionY: 2
