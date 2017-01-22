@@ -221,7 +221,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Soundwaves\n                      Yell To Start\n"
+  m_Text: "Space Bats!\n                      Yell To Start\n"
 --- !u!222 &684368027
 CanvasRenderer:
   m_ObjectHideFlags: 0
