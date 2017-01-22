@@ -1829,7 +1829,7 @@ MonoBehaviour:
   timer: 3
   prefab: {fileID: 1630653136405630, guid: 2ea814b7bbdc24b23a9ee3481faf5071, type: 2}
   positionX: 21.5
-  positionY: 0.5
+  positionY: 2
   positionZ: 87
 --- !u!65 &1132346740
 BoxCollider:
