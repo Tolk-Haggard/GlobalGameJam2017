@@ -14,7 +14,7 @@ public class IntroTimer : MonoBehaviour {
 
 		timer -= Time.deltaTime;
 
-		if (timer <=(0))
+		if (timer <=(0)  || Input.GetKeyDown(KeyCode.Space))
 			SceneManager.LoadScene ("Lvl1", LoadSceneMode.Single);
 
 	}
